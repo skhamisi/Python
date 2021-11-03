@@ -88,8 +88,12 @@ def RunDivision(numProb):
         answer= one / two
 
         userAnswer = float(input(f'{one} / {two} = '))
+
+        #The Python abs() method takes the absolute value of the number derived from 'userAnswer' minus 'answer' and assigns that value to 
+        #difference'
         difference = abs(userAnswer - answer)
 
+        #If the value stored in difference is less than .05, then the user answer is presented as correct 
         if difference < .05:
             print('Correct')
             score += 1
@@ -99,9 +103,12 @@ def RunDivision(numProb):
         numProb -= 1
     print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')  
 
+#A method for error handling user input when the user chooses a category in the main menu
 def checkValidInput(selection):
+    #As long as the user selection is greater than 4 or less than or equal to zero, the user is presented with an error message. 
     while selection > 4 or selection <=0:
         print('Invalid choice, please try again')
         selection = int(input('Choose a math category: '))
         checkValidInput(selection)
+    #If user input falls between the parameters, the while loop is never initiated and the code continues to execute
     return selection

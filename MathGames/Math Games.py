@@ -12,8 +12,10 @@
 #5) Build function for displaying correct or incorrect answer to user
 #6) Keep track of correct/incorrect answers to provide user with a score
 
+#Imports the methods from a seperate file named 'mathFunctions', seperating the code helps keep it clean and more readable
 import mathFunctions as mf
 
+#Displays the initial menu to the user where they can choose a category
 print('Welcome to Math Games!')
 print('======================')
 print('''
@@ -21,8 +23,13 @@ Enter [1] for addition
 Enter [2] for subtraction
 Enter [3] for multiplication 
 Enter [4] for division''')
+
 userInput = int(input('\nChoose a math category: '))
+
+#userInput is passed to 'checkValidInput' to make sure the value ranges from 1-4
 userInput = mf.checkValidInput(userInput)
+
+#This set of if statments takes the value returned from 'checkValiInput' and runs the correct method selected by the user
 if userInput == 1:
     userChoice = int(input('\nHow many problems would you like to solve? '))
     mf.RunAddition(userChoice)
