@@ -37,17 +37,17 @@ Type [yes] or [no]\n''')
         print(f'After paying your current bills, you will have ${takeHomeSalary}')
         print(f'Repairing your car will cost ${repairCost} and add ${monthlyRepairPayment} to your monthly obligations')
         print(f'If you repair your car, you will have ${takeHomeSalary - monthlyRepairPayment} left over very month')
-    userChoice = input('''Do you want to proceed with repairing your car?
+        userChoice = input('''\nDo you want to proceed with repairing your car?
 Type [yes] or [no]\n''')
-    if userChoice == 'yes' or userChoice == 'Yes':
-        if monthlyRepairPayment > takeHomeSalary:
-            print('\nThis is gonna be though, better find another job!')
-            input()
-            makeAChoice()
-        else:
-            print('Congrats! Looks like you can afford this!')
-            input()
-            makeAChoice()
+        if userChoice == 'yes' or userChoice == 'Yes':
+            if monthlyRepairPayment > takeHomeSalary:
+                print('\nThis is gonna be though, better find another job!')
+                input()
+                makeAChoice()
+            else:
+                print('\nCongrats! Looks like you can afford this!')
+                input()
+                makeAChoice()
     if userChoice == 'no' or userChoice == 'No':
         makeAChoice()
 
@@ -60,17 +60,17 @@ Type [yes] or [no]\n''')
         print(f'After paying your current bills, you will have ${takeHomeSalary}')
         print(f'Buying a new car will cost ${newCarPrice} and add ${monthlyNewCarPayment} to your monthly obligations')
         print(f'If you buy a new your car, you will have ${takeHomeSalary - monthlyNewCarPayment} left over very month')
-    userChoice = input('''Do you want to proceed with repairing your car?
+        userChoice = input('''\nDo you want to proceed with buying a new car?
 Type [yes] or [no]\n''')
-    if userChoice == 'yes' or userChoice == 'Yes':
-        if monthlyNewCarPayment > takeHomeSalary:
-            print('\nThis is gonna be though, better find another job!')
-            input()
-            makeAChoice()
-        else:
-            print('Congrats! Looks like you can afford this!')
-            input()
-            makeAChoice()
+        if userChoice == 'yes' or userChoice == 'Yes':
+            if monthlyNewCarPayment > takeHomeSalary:
+                print('\nThis is gonna be though, better find another job!')
+                input()
+                makeAChoice()
+            else:
+                print('\nCongrats! Looks like you can afford this!')
+                input()
+                makeAChoice()
     if userChoice == 'no' or userChoice == 'No':
         makeAChoice()
 
@@ -83,17 +83,17 @@ Type [yes] or [no]\n''')
         print(f'After paying your current bills, you will have ${takeHomeSalary}')
         print(f'Buying a used car will cost ${usedCarPrice} and add ${monthlyUsedCarPayment} to your monthly obligations')
         print(f'If you buy a used car, you will have ${takeHomeSalary - monthlyUsedCarPayment} left over very month')
-    userChoice = input('''Do you want to proceed with repairing your car?
+        userChoice = input('''\nDo you want to proceed with buying a used car?
 Type [yes] or [no]\n''')
-    if userChoice == 'yes' or userChoice == 'Yes':
-        if monthlyUsedCarPayment > takeHomeSalary:
-            print('\nThis is gonna be though, better find another job!')
-            input()
-            makeAChoice()
-        else:
-            print('Congrats! Looks like you can afford this!')
-            input()
-            makeAChoice()
+        if userChoice == 'yes' or userChoice == 'Yes':
+            if monthlyUsedCarPayment > takeHomeSalary:
+                print('\nThis is gonna be though, better find another job!')
+                input()
+                makeAChoice()
+            else:
+                print('\nCongrats! Looks like you can afford this!')
+                input()
+                makeAChoice()
     if userChoice == 'no' or userChoice == 'No':
         makeAChoice()
 
