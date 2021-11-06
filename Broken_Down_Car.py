@@ -36,8 +36,12 @@ Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
         if monthlyRepairPayment > takeHomeSalary:
             print('\nThis is gonna be though, better find another job!')
+            input()
+            makeAChoice()
         else:
             print('Congrats! Looks like you can afford this!')
+            input()
+            makeAChoice()
     if userChoice == 'no' or userChoice == 'No':
         makeAChoice()
 
@@ -55,8 +59,12 @@ Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
         if monthlyNewCarPayment > takeHomeSalary:
             print('\nThis is gonna be though, better find another job!')
+            input()
+            makeAChoice()
         else:
             print('Congrats! Looks like you can afford this!')
+            input()
+            makeAChoice()
     if userChoice == 'no' or userChoice == 'No':
         makeAChoice()
 
@@ -74,8 +82,12 @@ Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
         if monthlyUsedCarPayment > takeHomeSalary:
             print('\nThis is gonna be though, better find another job!')
+            input()
+            makeAChoice()
         else:
             print('Congrats! Looks like you can afford this!')
+            input()
+            makeAChoice()
     if userChoice == 'no' or userChoice == 'No':
         makeAChoice()
 
