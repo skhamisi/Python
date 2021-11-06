@@ -10,19 +10,25 @@ tax = preTaxSalary * .15
 monthlySalary = preTaxSalary - tax
 takeHomeSalary = monthlySalary - 700
 
+
 #Total cost to repair car
 repairCost = 2500
-monthlyRepairPayment = round(repairCost / 12) + (repairCost * .17)
+monthlyRepairPayment = round(repairCost / 24) + ((repairCost * .17) / 12)
 
-#Cost of a new car
+print(monthlyRepairPayment)
+
+#Cost of a new car financed for 72 months at 10% annual interest
 newCarPrice = 20000
-monthlyNewCarPayment = round(newCarPrice / 12) + (newCarPrice * .10)
+monthlyNewCarPayment = round(newCarPrice / 72) + ((newCarPrice * .10) / 12)
 
-#Cost of a used car
+print(monthlyNewCarPayment)
+
+#Cost of a used car financed for 72 months at 12% annual interest
 usedCarPrice = 9000
-monthlyUsedCarPayment = round(usedCarPrice / 12) + (usedCarPrice * .12)
+monthlyUsedCarPayment = round(usedCarPrice / 72) + ((usedCarPrice * .12) / 12)
+print(monthlyUsedCarPayment)
 
-#Function for reapiring current car
+#Function for repairing current car
 def repairCar():
     userChoice = input('''\nYou've chosen to repair your car, are you sure about that?
 Type [yes] or [no]\n''')
@@ -53,7 +59,7 @@ Type [yes] or [no]\n''')
         print(f'\nYou make: ${monthlySalary} every month')
         print(f'After paying your current bills, you will have ${takeHomeSalary}')
         print(f'Buying a new car will cost ${newCarPrice} and add ${monthlyNewCarPayment} to your monthly obligations')
-        print(f'If you repair your car, you will have ${takeHomeSalary - monthlyNewCarPayment} left over very month')
+        print(f'If you buy a new your car, you will have ${takeHomeSalary - monthlyNewCarPayment} left over very month')
     userChoice = input('''Do you want to proceed with repairing your car?
 Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
@@ -75,8 +81,8 @@ Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
         print(f'\nYou make: ${monthlySalary} every month')
         print(f'After paying your current bills, you will have ${takeHomeSalary}')
-        print(f'Buying a new car will cost ${usedCarPrice} and add ${monthlyUsedCarPayment} to your monthly obligations')
-        print(f'If you repair your car, you will have ${takeHomeSalary - monthlyUsedCarPayment} left over very month')
+        print(f'Buying a used car will cost ${usedCarPrice} and add ${monthlyUsedCarPayment} to your monthly obligations')
+        print(f'If you buy a used car, you will have ${takeHomeSalary - monthlyUsedCarPayment} left over very month')
     userChoice = input('''Do you want to proceed with repairing your car?
 Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
@@ -94,10 +100,16 @@ Type [yes] or [no]\n''')
 #Presents user with three scenarios concerning their broken car
 def makeAChoice():
     cls()
+    print('''
+--------------------------------------------------------------------------------
+Your car broke unexpectedly! Well...Not really, you put it off for too long... |
+So what do you want to do about it?                                            |
+--------------------------------------------------------------------------------\n''')
     userDecision = input('''Make a selection
-    Enter [1] to repair your car
-    Enter [2] to buy a new car
-    Enter [3]to buy a used car\n''')
+-----------------
+Enter [1] to repair your car
+Enter [2] to buy a new car
+Enter [3]to buy a used car\n''')
     if userDecision == '1':
         repairCar()
     if userDecision == '2':
