@@ -16,6 +16,7 @@
 import mathFunctions as mf
 
 #Displays the initial menu to the user where they can choose a category
+mf.cls()
 print('Welcome to Math Games!')
 print('======================')
 print('''

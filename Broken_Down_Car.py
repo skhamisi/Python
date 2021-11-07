@@ -1,3 +1,10 @@
+#Requirements
+#------------
+# 1. Perform basic arithmetic for user finances
+# 2. Present user with several options that take into account finances
+# 3. Allow user to change their mind and look at other options
+# 4. Let users know whether the decision they make fits within their budget or not
+
 #Simple function for clearing backlog of commands from the console
 import os
 
@@ -33,6 +40,7 @@ def repairCar():
     userChoice = input('''\nYou've chosen to repair your car, are you sure about that?
 Type [yes] or [no]\n''')
     if userChoice == 'yes' or userChoice == 'Yes':
+        #The following set of print statements simply present the numbers calculated earlier to the user
         print(f'\nYou make: ${monthlySalary} every month')
         print(f'After paying your current bills, you will have ${takeHomeSalary}')
         print(f'Repairing your car will cost ${repairCost} and add ${monthlyRepairPayment} to your monthly obligations')
@@ -40,6 +48,7 @@ Type [yes] or [no]\n''')
         userChoice = input('''\nDo you want to proceed with repairing your car?
 Type [yes] or [no]\n''')
         if userChoice == 'yes' or userChoice == 'Yes':
+            #If the cost of this decision outweighs the user's monthly income, they are presented with a warning
             if monthlyRepairPayment > takeHomeSalary:
                 print('\nThis is gonna be though, better find another job!')
                 input()

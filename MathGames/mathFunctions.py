@@ -1,7 +1,11 @@
-import random
+import random, os
+
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 #Function for addition arithmetic, takes one parameter 'numProb' which holds the value for the number of problems the user chose 
 def RunAddition(numProb):
+    cls()
     print(f'\nYou are testing on addition and you have {numProb} problems')
 
     #the value of 'numProb' is assigned to 'prob' in order to seperate the variables for the purpose of scoring at the end of the test
@@ -21,12 +25,12 @@ def RunAddition(numProb):
 
         #User input is checked against the value stored in 'answer', if true the 'score' variable is incremented
         if answer == userAnswer:
-            print('Correct')
+            print('Correct\n')
             score += 1
         #If user input is not correct, the 'score' variable is not incremented
         else:
             print('Incorrect')
-            print(f'Correct answer is {answer}')
+            print(f'Correct answer is {answer}\n')
         #At the end of the loop, our 'numProd' varibale is decremented, once this reaches zero the while loop will stop generating problems
         numProb -= 1
     #'score' is divided by 'prob' and then multiplied by 100 in order to present a test score to the user 
@@ -34,6 +38,7 @@ def RunAddition(numProb):
 
 #Function for subtraction arithmetic 
 def RunSubtraction(numProb):
+    cls()
     print(f'\nYou are testing on subtraction and you have {numProb} problems')
     prob = numProb
     score = 0
@@ -46,16 +51,17 @@ def RunSubtraction(numProb):
         userAnswer = int(input(f'{one} - {two} = '))
 
         if answer == userAnswer:
-            print('Correct')
+            print('Correct\n')
             score += 1
         else:
             print('Incorrect')
-            print(f'Correct answer is {answer}')
+            print(f'Correct answer is {answer}\n')
         numProb -= 1
     print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')
 
 #Function for multiplication arithmetic 
 def RunMultiplication(numProb):
+    cls()
     print(f'\nYou are testing on multiplication and you have {numProb} problems')
     prob = numProb
     score = 0
@@ -68,16 +74,17 @@ def RunMultiplication(numProb):
         userAnswer = int(input(f'{one} x {two} = '))
 
         if answer == userAnswer:
-            print('Correct')
+            print('Correct\n')
             score += 1
         else:
             print('Incorrect')
-            print(f'Correct answer is {answer}')
+            print(f'Correct answer is {answer}\n')
         numProb -= 1
     print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')
 
 #Function for division arithmetic 
 def RunDivision(numProb):
+    cls()
     print(f'\nYou are testing on Division and you have {numProb} problems')
     prob = numProb
     score = 0
@@ -98,8 +105,8 @@ def RunDivision(numProb):
             print('Correct')
             score += 1
         else:
-            print('Incorrect')
-            print(f'Correct answer is {answer}')
+            print('Incorrect\n')
+            print(f'Correct answer is {answer}\n')
         numProb -= 1
     print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')  
 
