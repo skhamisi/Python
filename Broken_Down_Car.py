@@ -127,7 +127,3 @@ Enter [3]to buy a used car\n''')
         buyUsedCar()
 
 makeAChoice()
-
-
-
-
