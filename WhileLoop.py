@@ -1,7 +1,7 @@
 i = 1
 sumOfSquares = 0
 
-#Python While
+#Python While Loop
 while sumOfSquares < 200:
     x = (i * i)
     sumOfSquares = sumOfSquares + x
@@ -11,7 +11,7 @@ print(sumOfSquares)
 
 print('---------------')
 
-#Python Do-While
+#Python Do-While Loop
 while True:
     x = (i * i)
     sumOfSquares = sumOfSquares + x
