@@ -3,8 +3,8 @@ sumOfSquares = 0
 
 #Python While Loop
 while sumOfSquares < 200:
-    x = (i * i)
-    sumOfSquares = sumOfSquares + x
+    sumOfSquares = sumOfSquares + (i * i)
+    print(sumOfSquares)
     i += 1
 
 print(sumOfSquares)
@@ -13,8 +13,8 @@ print('---------------')
 
 #Python Do-While Loop
 while True:
-    x = (i * i)
-    sumOfSquares = sumOfSquares + x
+    sumOfSquares = sumOfSquares + (i * i)
+    print(sumOfSquares)
     i += 1
     if sumOfSquares > 200:
         break
