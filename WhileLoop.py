@@ -9,7 +9,7 @@ while sumOfSquares < 200:
 
 print(sumOfSquares)
 
-print('---------------')
+print('-----------------')
 
 #Python Do-While Loop
 while True:
