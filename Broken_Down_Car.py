@@ -17,18 +17,13 @@ tax = preTaxSalary * .15
 monthlySalary = preTaxSalary - tax
 takeHomeSalary = monthlySalary - 700
 
-
 #Total cost to repair car
 repairCost = 2500
 monthlyRepairPayment = round(repairCost / 24) + ((repairCost * .17) / 12)
 
-print(monthlyRepairPayment)
-
 #Cost of a new car financed for 72 months at 10% annual interest
 newCarPrice = 20000
 monthlyNewCarPayment = round(newCarPrice / 72) + ((newCarPrice * .10) / 12)
-
-print(monthlyNewCarPayment)
 
 #Cost of a used car financed for 72 months at 12% annual interest
 usedCarPrice = 9000
