@@ -7,8 +7,6 @@ while sumOfSquares < 200:
     print(sumOfSquares)
     i += 1
 
-print(sumOfSquares)
-
 print('-----------------')
 
 #Python Do-While Loop
@@ -18,5 +16,3 @@ while True:
     i += 1
     if sumOfSquares > 200:
         break
-   
-print(sumOfSquares)
