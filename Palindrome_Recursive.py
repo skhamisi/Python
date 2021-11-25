@@ -12,7 +12,7 @@ def isPalindrome(word):
 #Allow the user to input a character, string, or integer. 
 input = (input('Please enter a word: '))
 
-if isPalindrome(input):
+if isPalindrome(input.lower()):
     print('This word is a palindrome')
 else:
     print('This word is not a palindrome')
