@@ -6,7 +6,8 @@ def cls():
 #Function for addition arithmetic, takes one parameter 'numProb' which holds the value for the number of problems the user chose 
 def RunAddition(numProb):
     cls()
-    print(f'\nYou are testing on addition and you have {numProb} problems')
+    print(f'\nYou are testing on addition and you have [{numProb}] problem(s)')
+    input('Press [ENTER] to continue\n')
 
     #the value of 'numProb' is assigned to 'prob' in order to seperate the variables for the purpose of scoring at the end of the test
     prob = numProb
@@ -15,8 +16,8 @@ def RunAddition(numProb):
     #The while loop takes the number of problems the user specified and keeps generating problems until the condition evaluates to false
     while(numProb > 0):
         #the random.randint generates random numbers between 1, 20
-        one = random.randint(1,2000)
-        two =  random.randint(1,2000)
+        one = random.randint(1,20)
+        two =  random.randint(1,20)
         #Here the actual arithemtic is processed and the value assigned to 'answer'
         answer = one + two
 
@@ -34,12 +35,13 @@ def RunAddition(numProb):
         #At the end of the loop, our 'numProd' varibale is decremented, once this reaches zero the while loop will stop generating problems
         numProb -= 1
     #'score' is divided by 'prob' and then multiplied by 100 in order to present a test score to the user 
-    print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')
+    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}')
 
 #Function for subtraction arithmetic 
 def RunSubtraction(numProb):
     cls()
-    print(f'\nYou are testing on subtraction and you have {numProb} problems')
+    print(f'\nYou are testing on subtraction and you have [{numProb}] problem(s)')
+    input('Press [ENTER] to continue\n')
     prob = numProb
     score = 0
 
@@ -57,18 +59,19 @@ def RunSubtraction(numProb):
             print('Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')
+    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}')
 
 #Function for multiplication arithmetic 
 def RunMultiplication(numProb):
     cls()
-    print(f'\nYou are testing on multiplication and you have {numProb} problems')
+    print(f'\nYou are testing on multiplication and you have [{numProb}] problem(s)')
+    input('Press [ENTER] to continue\n')
     prob = numProb
     score = 0
 
     while(numProb > 0):
         one = random.randint(1,13)
-        two =  random.randint(1,20)
+        two =  random.randint(1,13)
         answer = one * two
 
         userAnswer = int(input(f'{one} x {two} = '))
@@ -80,12 +83,13 @@ def RunMultiplication(numProb):
             print('Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')
+    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}')
 
 #Function for division arithmetic 
 def RunDivision(numProb):
     cls()
-    print(f'\nYou are testing on Division and you have {numProb} problems')
+    print(f'\nYou are testing on Division and you have [{numProb}] problem(s)')
+    input('Press [ENTER] to continue\n')
     prob = numProb
     score = 0
 
@@ -100,7 +104,7 @@ def RunDivision(numProb):
         #difference'
         difference = abs(userAnswer - answer)
 
-        #If the value stored in difference is less than .05, then the user answer is presented as correct 
+        #If the value stored in 'difference' is less than .05, then the user answer is presented as correct 
         if difference < .05:
             print('Correct')
             score += 1
@@ -108,7 +112,7 @@ def RunDivision(numProb):
             print('Incorrect\n')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'\nYou got {score} out {prob} correct, your score is {(score/prob) * 100}')  
+    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}') 
 
 #A method for error handling user input when the user chooses a category in the main menu
 def checkValidInput(selection):
@@ -119,3 +123,42 @@ def checkValidInput(selection):
         checkValidInput(selection)
     #If user input falls between the parameters, the while loop is never initiated and the code continues to execute
     return selection
+
+#Displays the initial menu to the user where they can choose a category
+def MathTest():
+    cls()
+    print('Welcome to Math Games!')
+    print('======================')
+    print('''
+    Enter [1] for addition
+    Enter [2] for subtraction
+    Enter [3] for multiplication 
+    Enter [4] for division''')
+
+    userInput = int(input('\nChoose a math category: '))
+
+    #userInput is passed to 'checkValidInput' to make sure the value ranges from 1-4
+    userInput = checkValidInput(userInput)
+
+    if userInput == 1:
+        userChoice = int(input('\nHow many problems would you like to solve? '))
+        RunAddition(userChoice)
+    if userInput == 2:
+        userChoice = int(input('\nHow many problems would you like to solve? '))
+        RunSubtraction(userChoice)
+    if userInput == 3:
+        userChoice = int(input('\nHow many problems would you like to solve? '))
+        RunMultiplication(userChoice)
+    if userInput == 4:
+        userChoice = int(input('\nHow many problems would you like to solve? '))
+        RunDivision(userChoice)
+    
+    print('\nWould you like to practice another test?')
+    userInput = input('Enter [yes] to continue or [no] to quit: ')
+    userInput = userInput.lower()
+
+    if userInput == 'yes':
+        MathTest()
+    else:
+        print('\nGoodbye!')
+        exit()

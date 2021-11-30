@@ -15,32 +15,5 @@
 #Imports the methods from a seperate file named 'mathFunctions', seperating the code helps keep it clean and more readable
 import mathFunctions as mf
 
-#Displays the initial menu to the user where they can choose a category
-mf.cls()
-print('Welcome to Math Games!')
-print('======================')
-print('''
-Enter [1] for addition
-Enter [2] for subtraction
-Enter [3] for multiplication 
-Enter [4] for division''')
-
-userInput = int(input('\nChoose a math category: '))
-
-#userInput is passed to 'checkValidInput' to make sure the value ranges from 1-4
-userInput = mf.checkValidInput(userInput)
-
-#This set of if statments takes the value returned from 'checkValiInput' and runs the correct method selected by the user
-if userInput == 1:
-    userChoice = int(input('\nHow many problems would you like to solve? '))
-    mf.RunAddition(userChoice)
-if userInput == 2:
-    userChoice = int(input('\nHow many problems would you like to solve? '))
-    mf.RunSubtraction(userChoice)
-if userInput == 3:
-    userChoice = int(input('\nHow many problems would you like to solve? '))
-    mf.RunMultiplication(userChoice)
-if userInput == 4:
-    userChoice = int(input('\nHow many problems would you like to solve? '))
-    mf.RunDivision(userChoice)
+mf.MathTest()        
 
