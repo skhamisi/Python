@@ -1,5 +1,16 @@
 import random, os
 
+
+testsTaken = 0
+testAvg = 0
+
+class colors:
+    header = '\u001b[34m' #BLUE #BOLD #UNDERLINE
+    default = '\033[93m' #YELLOW
+    correct = '\033[92m' #GREEN
+    wrong = '\033[91m' #RED
+    reset = '\033[0m' #RESET COLOR
+
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
@@ -22,20 +33,20 @@ def RunAddition(numProb):
         answer = one + two
 
         #The generated numbers are presented to the user and their input recorded
-        userAnswer = int(input(f'{one} + {two} = '))
+        userAnswer = int(input(f'{colors.reset}{one} + {two} = '))
 
         #User input is checked against the value stored in 'answer', if true the 'score' variable is incremented
         if answer == userAnswer:
-            print('Correct\n')
+            print(f'{colors.correct}Correct\n')
             score += 1
         #If user input is not correct, the 'score' variable is not incremented
         else:
-            print('Incorrect')
+            print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         #At the end of the loop, our 'numProd' varibale is decremented, once this reaches zero the while loop will stop generating problems
         numProb -= 1
     #'score' is divided by 'prob' and then multiplied by 100 in order to present a test score to the user 
-    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}')
+    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}')
 
 #Function for subtraction arithmetic 
 def RunSubtraction(numProb):
@@ -53,13 +64,13 @@ def RunSubtraction(numProb):
         userAnswer = int(input(f'{one} - {two} = '))
 
         if answer == userAnswer:
-            print('Correct\n')
+            print(f'{colors.correct}Correct\n')
             score += 1
         else:
-            print('Incorrect')
+            print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}')
+    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}')
 
 #Function for multiplication arithmetic 
 def RunMultiplication(numProb):
@@ -77,13 +88,13 @@ def RunMultiplication(numProb):
         userAnswer = int(input(f'{one} x {two} = '))
 
         if answer == userAnswer:
-            print('Correct\n')
+            print(f'{colors.correct}Correct\n')
             score += 1
         else:
-            print('Incorrect')
+            print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}')
+    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}')
 
 #Function for division arithmetic 
 def RunDivision(numProb):
@@ -106,13 +117,13 @@ def RunDivision(numProb):
 
         #If the value stored in 'difference' is less than .05, then the user answer is presented as correct 
         if difference < .05:
-            print('Correct')
+            print(f'{colors.correct}Correct\n')
             score += 1
         else:
-            print('Incorrect\n')
+            print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'You got {score} out {prob} correct, your score is {(score/prob) * 100}') 
+    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}') 
 
 #A method for error handling user input when the user chooses a category in the main menu
 def checkValidInput(selection):
@@ -127,7 +138,10 @@ def checkValidInput(selection):
 #Displays the initial menu to the user where they can choose a category
 def MathTest():
     cls()
-    print('Welcome to Math Games!')
+    global testsTaken
+    print(f'{colors.header}Number of tests taken: {testsTaken}\n')
+
+    print(f'{colors.reset}Welcome to Math Games!')
     print('======================')
     print('''
     Enter [1] for addition
@@ -135,7 +149,7 @@ def MathTest():
     Enter [3] for multiplication 
     Enter [4] for division''')
 
-    userInput = int(input('\nChoose a math category: '))
+    userInput = int(input(f'{colors.default}\nChoose a math category: '))
 
     #userInput is passed to 'checkValidInput' to make sure the value ranges from 1-4
     userInput = checkValidInput(userInput)
@@ -158,6 +172,7 @@ def MathTest():
     userInput = userInput.lower()
 
     if userInput == 'yes':
+        testsTaken +=1
         MathTest()
     else:
         print('\nGoodbye!')
