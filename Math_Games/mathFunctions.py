@@ -15,8 +15,8 @@ def RunAddition(numProb):
     #The while loop takes the number of problems the user specified and keeps generating problems until the condition evaluates to false
     while(numProb > 0):
         #the random.randint generates random numbers between 1, 20
-        one = random.randint(1,20)
-        two =  random.randint(1,20)
+        one = random.randint(1,2000)
+        two =  random.randint(1,2000)
         #Here the actual arithemtic is processed and the value assigned to 'answer'
         answer = one + two
 
