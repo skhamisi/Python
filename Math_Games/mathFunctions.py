@@ -61,7 +61,7 @@ def RunSubtraction(numProb):
         two =  random.randint(1,20)
         answer = one - two
 
-        userAnswer = int(input(f'{one} - {two} = '))
+        userAnswer = int(input(f'{colors.reset}{one} - {two} = '))
 
         if answer == userAnswer:
             print(f'{colors.correct}Correct\n')
@@ -85,7 +85,7 @@ def RunMultiplication(numProb):
         two =  random.randint(1,13)
         answer = one * two
 
-        userAnswer = int(input(f'{one} x {two} = '))
+        userAnswer = int(input(f'{colors.reset}{one} x {two} = '))
 
         if answer == userAnswer:
             print(f'{colors.correct}Correct\n')
@@ -109,7 +109,7 @@ def RunDivision(numProb):
         two =  random.randint(1,13)
         answer= one / two
 
-        userAnswer = float(input(f'{one} / {two} = '))
+        userAnswer = float(input(f'{colors.reset}{one} / {two} = '))
 
         #The Python abs() method takes the absolute value of the number derived from 'userAnswer' minus 'answer' and assigns that value to 
         #difference'
