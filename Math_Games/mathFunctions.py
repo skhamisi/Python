@@ -1,8 +1,18 @@
 import random, os
 
 
-testsTaken = 0
+totalTestsTaken = 0
 testAvg = 0
+addRunAvg = 0
+subRunAvg = 0
+multRunAvg = 0
+divRunAvg = 0
+
+#Keeps track of number of individual tests taken
+addTestsTaken = 0
+subTestsTaken = 0
+multTestsTaken = 0
+divTestsTaken = 0
 
 class colors:
     header = '\u001b[34m' #BLUE #BOLD #UNDERLINE
@@ -17,8 +27,8 @@ def cls():
 #Function for addition arithmetic, takes one parameter 'numProb' which holds the value for the number of problems the user chose 
 def RunAddition(numProb):
     cls()
-    print(f'\nYou are testing on addition and you have [{numProb}] problem(s)')
-    input('Press [ENTER] to continue\n')
+    print(f'{colors.reset}\nYou are testing on addition and you have [{numProb}] problem(s)')
+    input(f'{colors.default}Press [ENTER] to continue\n')
 
     #the value of 'numProb' is assigned to 'prob' in order to seperate the variables for the purpose of scoring at the end of the test
     prob = numProb
@@ -45,14 +55,19 @@ def RunAddition(numProb):
             print(f'Correct answer is {answer}\n')
         #At the end of the loop, our 'numProd' varibale is decremented, once this reaches zero the while loop will stop generating problems
         numProb -= 1
-    #'score' is divided by 'prob' and then multiplied by 100 in order to present a test score to the user 
-    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}')
+    #'score' is divided by 'prob' and then multiplied by 100 in order to present a test score to the user
+    userScore = (score/prob) * 100
+    print(f'{colors.reset}You got {score} of {prob} correct, your score is {userScore}')
+    global addRunAvg
+    global addTestsTaken
+    addRunAvg += userScore
+    addTestsTaken += 1
 
 #Function for subtraction arithmetic 
 def RunSubtraction(numProb):
     cls()
-    print(f'\nYou are testing on subtraction and you have [{numProb}] problem(s)')
-    input('Press [ENTER] to continue\n')
+    print(f'{colors.reset}\nYou are testing on subtraction and you have [{numProb}] problem(s)')
+    input(f'{colors.default}Press [ENTER] to continue\n')
     prob = numProb
     score = 0
 
@@ -70,13 +85,18 @@ def RunSubtraction(numProb):
             print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}')
+    userScore = (score/prob) * 100
+    print(f'{colors.reset}You got {score} of {prob} correct, your score is {userScore}')
+    global subRunAvg
+    global subTestsTaken
+    subRunAvg += userScore
+    subTestsTaken += 1
 
 #Function for multiplication arithmetic 
 def RunMultiplication(numProb):
     cls()
-    print(f'\nYou are testing on multiplication and you have [{numProb}] problem(s)')
-    input('Press [ENTER] to continue\n')
+    print(f'{colors.reset}\nYou are testing on multiplication and you have [{numProb}] problem(s)')
+    input(f'{colors.default}Press [ENTER] to continue\n')
     prob = numProb
     score = 0
 
@@ -94,13 +114,18 @@ def RunMultiplication(numProb):
             print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}')
+    userScore = (score/prob) * 100
+    print(f'{colors.reset}You got {score} of {prob} correct, your score is {userScore}')
+    global multRunAvg
+    global multTestsTaken
+    multRunAvg += userScore
+    multTestsTaken += 1
 
 #Function for division arithmetic 
 def RunDivision(numProb):
     cls()
-    print(f'\nYou are testing on Division and you have [{numProb}] problem(s)')
-    input('Press [ENTER] to continue\n')
+    print(f'{colors.reset}\nYou are testing on Division and you have [{numProb}] problem(s)')
+    input(f'{colors.default}Press [ENTER] to continue\n')
     prob = numProb
     score = 0
 
@@ -123,7 +148,12 @@ def RunDivision(numProb):
             print(f'{colors.wrong}Incorrect')
             print(f'Correct answer is {answer}\n')
         numProb -= 1
-    print(f'{colors.default}You got {score} of {prob} correct, your score is {round(score/prob) * 100}') 
+    userScore = (score/prob) * 100
+    print(f'{colors.reset}You got {score} of {prob} correct, your score is {userScore}')
+    global divRunAvg
+    global divTestsTaken
+    divRunAvg += userScore
+    divTestsTaken += 1 
 
 #A method for error handling user input when the user chooses a category in the main menu
 def checkValidInput(selection):
@@ -138,8 +168,8 @@ def checkValidInput(selection):
 #Displays the initial menu to the user where they can choose a category
 def MathTest():
     cls()
-    global testsTaken
-    print(f'{colors.header}Number of tests taken: {testsTaken}\n')
+    global totalTestsTaken
+    print(f'{colors.header}Number of tests taken: {totalTestsTaken}\n')
 
     print(f'{colors.reset}Welcome to Math Games!')
     print('======================')
@@ -167,13 +197,33 @@ def MathTest():
         userChoice = int(input('\nHow many problems would you like to solve? '))
         RunDivision(userChoice)
     
+    #Increments counter to keep track of test attempts
+    totalTestsTaken += 1
+
+    #Keeps track of final user average for addition tests
+    if addTestsTaken > 0:
+        finalAddAvg = round(addRunAvg/addTestsTaken)
+    if subTestsTaken > 0:
+        finalSubAvg = round(subRunAvg/subTestsTaken)
+    if multTestsTaken > 0:
+        finalMultAvg = round(multRunAvg/multTestsTaken)
+    if divTestsTaken > 0:
+        finalDivAvg = round(divRunAvg/divTestsTaken)
+
     print('\nWould you like to practice another test?')
-    userInput = input('Enter [yes] to continue or [no] to quit: ')
+    userInput = input(f'{colors.default}Enter [yes] to continue or [no] to quit: ')
     userInput = userInput.lower()
 
     if userInput == 'yes':
-        testsTaken +=1
+        #totalTestsTaken +=1
         MathTest()
     else:
-        print('\nGoodbye!')
+        if addTestsTaken > 0:
+            print (f'{colors.reset}\nYour average score for Addition is {finalAddAvg}')
+        if subTestsTaken > 0:
+            print (f'\nYour average score for Subtraction is {finalSubAvg}')
+        if multTestsTaken > 0:
+            print (f'\nYour average score for Multiplication is {finalMultAvg}')
+        if divTestsTaken > 0:
+            print (f'\nYour average score for Division is {finalDivAvg}')
         exit()

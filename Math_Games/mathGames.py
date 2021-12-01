@@ -11,6 +11,8 @@
 #4) Provide generation for random set of numbers between a set interval
 #5) Build function for displaying correct or incorrect answer to user
 #6) Keep track of correct/incorrect answers to provide user with a score
+#7) Keep track of how many tests have been attempted
+#8) Keep track of averages score for each type of test and return total average
 
 #Imports the methods from a seperate file named 'mathFunctions', seperating the code helps keep it clean and more readable
 import mathFunctions as mf
