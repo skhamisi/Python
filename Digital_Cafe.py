@@ -5,7 +5,7 @@ def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
 class colors:
-    header = '\u001b[34m' #BLUE #BOLD #UNDERLINE
+    header = '\u001b[34m' #BLUE
     assistant = '\033[93m' #YELLOW
     warning = '\033[91m' #RED
     reset = '\033[0m' #RESET COLOR

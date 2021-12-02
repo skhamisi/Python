@@ -1,6 +1,5 @@
 import random, os
 
-
 totalTestsTaken = 0
 testAvg = 0
 addRunAvg = 0
@@ -15,7 +14,7 @@ multTestsTaken = 0
 divTestsTaken = 0
 
 class colors:
-    header = '\u001b[34m' #BLUE #BOLD #UNDERLINE
+    header = '\u001b[34m' #BLUE
     default = '\033[93m' #YELLOW
     correct = '\033[92m' #GREEN
     wrong = '\033[91m' #RED
@@ -165,6 +164,17 @@ def checkValidInput(selection):
     #If user input falls between the parameters, the while loop is never initiated and the code continues to execute
     return selection
 
+def NumberOfQuestions(userInput):
+    numProb = int(input('\nHow many problems would you like to solve? '))
+    if userInput == 1:
+        RunAddition(numProb)
+    if userInput == 2:
+        RunSubtraction(numProb)
+    if userInput == 3:
+        RunMultiplication(numProb)
+    if userInput == 4:
+        RunDivision(numProb)
+
 #Displays the initial menu to the user where they can choose a category
 def MathTest():
     cls()
@@ -184,18 +194,7 @@ def MathTest():
     #userInput is passed to 'checkValidInput' to make sure the value ranges from 1-4
     userInput = checkValidInput(userInput)
 
-    if userInput == 1:
-        userChoice = int(input('\nHow many problems would you like to solve? '))
-        RunAddition(userChoice)
-    if userInput == 2:
-        userChoice = int(input('\nHow many problems would you like to solve? '))
-        RunSubtraction(userChoice)
-    if userInput == 3:
-        userChoice = int(input('\nHow many problems would you like to solve? '))
-        RunMultiplication(userChoice)
-    if userInput == 4:
-        userChoice = int(input('\nHow many problems would you like to solve? '))
-        RunDivision(userChoice)
+    NumberOfQuestions(userInput)
     
     #Increments counter to keep track of test attempts
     totalTestsTaken += 1
@@ -219,7 +218,7 @@ def MathTest():
         MathTest()
     else:
         if addTestsTaken > 0:
-            print (f'{colors.reset}\nYour average score for Addition is {finalAddAvg}')
+            print (f'{colors.header}\nYour average score for Addition is {finalAddAvg}')
         if subTestsTaken > 0:
             print (f'\nYour average score for Subtraction is {finalSubAvg}')
         if multTestsTaken > 0:
