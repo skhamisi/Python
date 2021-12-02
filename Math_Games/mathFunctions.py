@@ -166,14 +166,10 @@ def checkValidInput(selection):
 
 def NumberOfQuestions(userInput):
     numProb = int(input('\nHow many problems would you like to solve? '))
-    if userInput == 1:
-        RunAddition(numProb)
-    if userInput == 2:
-        RunSubtraction(numProb)
-    if userInput == 3:
-        RunMultiplication(numProb)
-    if userInput == 4:
-        RunDivision(numProb)
+    if userInput == 1: RunAddition(numProb)
+    if userInput == 2: RunSubtraction(numProb)
+    if userInput == 3: RunMultiplication(numProb)
+    if userInput == 4: RunDivision(numProb)
 
 #Displays the initial menu to the user where they can choose a category
 def MathTest():
@@ -200,29 +196,20 @@ def MathTest():
     totalTestsTaken += 1
 
     #Keeps track of final user average for addition tests
-    if addTestsTaken > 0:
-        finalAddAvg = round(addRunAvg/addTestsTaken)
-    if subTestsTaken > 0:
-        finalSubAvg = round(subRunAvg/subTestsTaken)
-    if multTestsTaken > 0:
-        finalMultAvg = round(multRunAvg/multTestsTaken)
-    if divTestsTaken > 0:
-        finalDivAvg = round(divRunAvg/divTestsTaken)
+    if addTestsTaken > 0: finalAddAvg = round(addRunAvg/addTestsTaken)
+    if subTestsTaken > 0: finalSubAvg = round(subRunAvg/subTestsTaken)
+    if multTestsTaken > 0: finalMultAvg = round(multRunAvg/multTestsTaken)
+    if divTestsTaken > 0: finalDivAvg = round(divRunAvg/divTestsTaken)
 
     print('\nWould you like to practice another test?')
     userInput = input(f'{colors.default}Enter [yes] to continue or [no] to quit: ')
     userInput = userInput.lower()
 
-    if userInput == 'yes':
-        #totalTestsTaken +=1
-        MathTest()
+    if userInput == 'yes': MathTest()
     else:
-        if addTestsTaken > 0:
-            print (f'{colors.header}\nYour average score for Addition is {finalAddAvg}')
-        if subTestsTaken > 0:
-            print (f'\nYour average score for Subtraction is {finalSubAvg}')
-        if multTestsTaken > 0:
-            print (f'\nYour average score for Multiplication is {finalMultAvg}')
-        if divTestsTaken > 0:
-            print (f'\nYour average score for Division is {finalDivAvg}')
+        if addTestsTaken > 0: print (f'{colors.header}\nYour average score for Addition is {finalAddAvg}')
+        if subTestsTaken > 0: print (f'\nYour average score for Subtraction is {finalSubAvg}')
+        if multTestsTaken > 0: print (f'\nYour average score for Multiplication is {finalMultAvg}')
+        if divTestsTaken > 0: print (f'\nYour average score for Division is {finalDivAvg}')
+        
         exit()
