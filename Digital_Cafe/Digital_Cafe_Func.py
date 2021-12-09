@@ -12,11 +12,24 @@ class colors:
 def itemStyle(breakfast):
     if 'egg' in breakfast or 'eggs' in breakfast:
         eggStyle = input(f'{colors.assistant}\nAey-I: How would you like your eggs? ')
-        print(f"\nAey-I: {eggStyle}, got it, good choice")
+        print(f"{colors.assistant}\nAey-I: {eggStyle}, got it, good choice")
     if 'coffee' in breakfast:
-        coffeeChoice = input('\nAey-I: Would you like cream in your coffee? ').lower()
+        coffeeChoice = input(f'{colors.assistant}\nAey-I: Would you like cream in your coffee? ').lower()
         if 'yes' in coffeeChoice:
-            print('\nAey-I: One coffee with cream coming right up')
+            print(f'{colors.assistant}\nAey-I: One coffee with cream coming right up')
         else:
-            print('\nAey-I: Black coffee it is')
+            print(f'{colors.assistant}\nAey-I: Black coffee it is')
+
+# def addToOrder(breakfast, userResponse):
+#     while userResponse == 'yes':
+#         extraOrder = input(f'{colors.assistant}\nAey-I: What would you like? ').lower()
+#         itemStyle(extraOrder)
+#         breakfast.append(extraOrder)
+#         userResponse = input(f'{colors.assistant}\nAey-I: Can I get anything else for you? ').lower()
+
+
+
+# def breakFastOrder(userBreakfast):
+#     breakfast = userBreakfast.split(', ')
+#     return breakfast
 
